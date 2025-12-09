@@ -16,7 +16,8 @@ my_dict['list'].pop(1)
 print("Удалён второй элемент из list:", my_dict['list'])
 
 # действия с dict
-my_dict['dict']['i am a tuple'] = 'hi'
+tuple_key = ('i am a tuple',)
+my_dict['dict'][tuple_key] = 'hi'
 print("Добавлен новый элемент с новым ключом в dict", my_dict['dict'])
 my_dict['dict'].pop('a')
 print("Удалён элемент с ключом 'a' из dict", my_dict['dict'])
