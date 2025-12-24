@@ -1,6 +1,7 @@
 NUM1 = 'Введите первое число: '
 NUM2 = 'Введите второе число: '
 
+
 def decorator(func):
     def wrapper(a, b, operation):
         if a == b:
