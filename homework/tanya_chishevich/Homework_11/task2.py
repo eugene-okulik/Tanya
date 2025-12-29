@@ -13,12 +13,12 @@ class Books:
     def details_book(self):
         if self.is_reserve:
             print(
-                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, ISBN: {self.isbn_number}, "
-                f"Материал: {Books.page_material}, Зарезервирована")
+                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, "
+                f"ISBN: {self.isbn_number}, Материал: {Books.page_material}, Зарезервирована")
         else:
             print(
-                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, ISBN: {self.isbn_number}, "
-                f"Материал: {Books.page_material}")
+                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, "
+                f"ISBN: {self.isbn_number}, Материал: {Books.page_material}")
 
 
 class SchoolBooks(Books):
@@ -31,12 +31,12 @@ class SchoolBooks(Books):
     def details_school_book(self):
         if self.is_reserve:
             print(
-                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, Предмет: {self.subject}, "
-                f"Класс: {self.class_room}, Зарезервирована")
+                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, "
+                f"Предмет: {self.subject}, Класс: {self.class_room}, Зарезервирована")
         else:
             print(
-                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, Предмет: {self.subject}, "
-                f"Класс: {self.class_room}")
+                f"Название: {self.title}, Автор: {self.author}, Страниц: {self.number_of_pages}, "
+                f"Предмет: {self.subject}, Класс: {self.class_room}")
 
 
 obj1 = SchoolBooks("Алгебра", "Иванов", 200, None, True,
