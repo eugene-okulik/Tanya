@@ -30,7 +30,7 @@ def read_file():
                 else:
                     print(f"Нет такого номера №{record_number} в файле")
             except ValueError:
-                print(f"Не удалось разобрать дату или номер в строке")
+                print("Не удалось разобрать дату или номер в строке")
 
 
 read_file()
