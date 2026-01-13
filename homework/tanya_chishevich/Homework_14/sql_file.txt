@@ -1,12 +1,15 @@
-INSERT INTO `groups` (title, start_date, end_date) VALUES ('QA tester', CURATE(), DATE_ADD(CURATE(), INTERVAL 2 MONTH))
-
-INSERT INTO students (name, second_name, group_id) VALUES ('Tanya', 'Chishevich', 21716)
+INSERT INTO students (name, second_name) VALUES ('Tanya', 'Chishevich')
 
 INSERT INTO books (title, taken_by_student_id)
 VALUES
-('How to Break Web Software', (SELECT students.id FROM students WHERE students.group_id = 21716)),
-('Software Testing Techniques', (SELECT students.id FROM students WHERE students.group_id = 21716)),
-('Agile Testing: A Practical Guide for Testers', (SELECT students.id FROM students WHERE students.group_id = 21716))
+('How to Break Web Software', (SELECT students.id FROM students WHERE name='Tanya' AND second_name='Chishevich')),
+('Software Testing Techniques', (SELECT students.id FROM students WHERE name='Tanya' AND second_name='Chishevich')),
+('Agile Testing: A Practical Guide for Testers', (SELECT students.id FROM students
+WHERE name='Tanya' AND second_name='Chishevich'))
+
+INSERT INTO `groups` (title, start_date, end_date) VALUES ('QA tester', CURATE(), DATE_ADD(CURATE(), INTERVAL 2 MONTH))
+
+UPDATE students SET group_id = 21716 WHERE id = 21947
 
 INSERT INTO subjects (title) VALUES ('Agile testing'), ('QA testing'), ('Software Test automation')
 
