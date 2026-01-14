@@ -1,0 +1,42 @@
+INSERT INTO students (name, second_name) VALUES ('Tanya', 'Chishevich')
+
+INSERT INTO books (title, taken_by_student_id)
+VALUES
+('How to Break Web Software', (SELECT students.id FROM students WHERE name='Tanya' AND second_name='Chishevich')),
+('Software Testing Techniques', (SELECT students.id FROM students WHERE name='Tanya' AND second_name='Chishevich')),
+('Agile Testing: A Practical Guide for Testers', (SELECT students.id FROM students
+WHERE name='Tanya' AND second_name='Chishevich'))
+
+INSERT INTO `groups` (title, start_date, end_date) VALUES ('QA tester', CURATE(), DATE_ADD(CURATE(), INTERVAL 2 MONTH))
+
+UPDATE students SET group_id = 21716 WHERE id = 21947
+
+INSERT INTO subjects (title) VALUES ('Agile testing'), ('QA testing'), ('Software Test automation')
+
+ INSERT INTO lessons (title, subject_id)
+ VALUES  ('SCRUM', 13361),  ('Kanban ', 13361),  ('Functional testing ', 13362),  ('UI/UX', 13362),
+ ('Auto testing Python', 13363),  ('CI/CD', 13363)
+
+ INSERT INTO marks (value, lesson_id, student_id)
+ VALUES  (10, 74054, 21947),  (7, 74055, 21947),  (9, 74056, 21947),  (8, 74057, 21947),  (5, 74058, 21947),
+ (4, 74059, 21947)
+
+ SELECT *FROM marks WHERE student_id = 21947
+
+ SELECT *FROM books WHERE taken_by_student_id = 21947
+
+ SELECT
+ s.name,
+ s.second_name,
+ g.title AS TitleGroups,
+ b.title AS TitleBooks,
+ l.title,
+ m.value
+ FROM students s
+ JOIN `groups` g ON g.id = s.group_id
+ JOIN books b ON b.taken_by_student_id = s.id
+ JOIN subjects s2
+ JOIN lessons l ON l.subject_id = s2.id
+ JOIN marks m ON m.student_id = s.id and m.lesson_id = l.id
+ WHERE s.id = 21947 AND s2.id IN (13361, 13362, 13363)
+ ORDER BY m.value DESC
