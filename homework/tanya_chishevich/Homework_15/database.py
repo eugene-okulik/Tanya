@@ -2,7 +2,6 @@ import mysql.connector as mysql
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
-
 today_new = date.today()
 future_date = today_new + relativedelta(months=2)
 
@@ -24,7 +23,7 @@ cursor.execute(query, values)
 new_user_id = cursor.lastrowid
 print(f'ID студента: {new_user_id}')
 
- # Создание нескольких книг
+# Создание нескольких книг
 books_data = [
     ('How to Break Web Software 2', new_user_id),
     ('Software Testing Techniques 2', new_user_id),
@@ -45,8 +44,8 @@ cursor.execute(query, (group_id, new_user_id))
 
 # Создание несколько учебных предметов (subjects)
 subjects_data = [
-    ('Agile testing 2', ),
-    ('QA testing 2', ),
+    ('Agile testing 2',),
+    ('QA testing 2',),
     ('Software Test automation 2',)
 ]
 
