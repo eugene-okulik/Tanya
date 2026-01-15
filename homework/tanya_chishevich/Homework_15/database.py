@@ -109,14 +109,14 @@ print(f'Получение книг нашего студента: {cursor.fetch
 
 # Вся информация о студенте
 query = f"""
- SELECT 
+ SELECT
     s.name,
     s.second_name,
     g.title AS TitleGroups,
     b.title AS TitleBooks,
     l.title,
-    m.value 
- FROM students s 
+    m.value
+ FROM students s
  JOIN `groups` g ON g.id = s.group_id
  JOIN books b ON b.taken_by_student_id = s.id
  JOIN subjects s2
