@@ -99,7 +99,7 @@ cursor.execute(query, (new_user_id,))
 print(f'Получение книг нашего студента: {cursor.fetchall()}')
 
 # Вся информация о студенте
-query = f"""
+query = """
  SELECT
     s.name,
     s.second_name,
