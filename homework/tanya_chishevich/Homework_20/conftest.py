@@ -17,8 +17,10 @@ def new_post_id():
     post_id = response.json()['id']
     print(post_id)
     yield post_id
-    print('\ndeleting object')
-    requests.delete(f'http://objapi.course.qa-practice.com/object/{post_id}')
+    obj = requests.get(f'http://objapi.course.qa-practice.com/object/{post_id}')
+    if obj:
+        print('\ndeleting object')
+        requests.delete(f'http://objapi.course.qa-practice.com/object/{post_id}')
 
 
 @pytest.fixture(scope="session", autouse=True)

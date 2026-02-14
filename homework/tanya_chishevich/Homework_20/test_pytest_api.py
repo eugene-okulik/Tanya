@@ -68,5 +68,6 @@ def test_patch_object(new_post_id):
 
 
 def test_delete_object(new_post_id):
-    assert new_post_id is not None
-    print("Проверка удаление объекта...")
+    response = requests.delete(f'http://objapi.course.qa-practice.com/object/{new_post_id}')
+    assert response.status_code == 200
+    print(response.content)
