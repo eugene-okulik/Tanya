@@ -104,7 +104,7 @@ def test_patch_object(new_post_id):
 def test_delete_object(new_post_id):
     with allure.step(f'Run delete request for post with id {new_post_id}'):
         response = requests.delete(f'http://objapi.course.qa-practice.com/object/{new_post_id}')
-    with allure.step(f'Check post status 200'):
+    with allure.step('Check post status 200'):
         assert response.status_code == 200
     print(response.content)
 
