@@ -30,9 +30,11 @@ def patch_post_endpoint():
 def delete_post_endpoint():
     return DeletePost()
 
+
 test_data = [
     ("Tanya object", {"age": 33, "specialty": "Tester"})
 ]
+
 
 @pytest.fixture()
 def post_id(create_post_endpoint, get_post_endpoint, delete_post_endpoint):
