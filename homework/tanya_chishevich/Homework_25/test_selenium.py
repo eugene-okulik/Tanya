@@ -12,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
+    sleep(3)
     chrome_driver.maximize_window()
     yield chrome_driver
     sleep(3)
@@ -29,7 +30,7 @@ def test_input_text(driver):
 
 
 def test_fill_out_student_form(driver):
-    data = ['Tanya', 'Chishevich', 'tanyaChishevich@gmail.com', '1234567896', '11', '1992', 'Automaion Testing',
+    data = ['Tanya', 'Chishevich', 'tanyaChishevich@gmail.com', '1234567896', '11', '1992', 'Arts',
             'test adress']
     driver.get('https://demoqa.com/automation-practice-form')
     input_firstname = driver.find_element(By.ID, 'firstName')
@@ -51,13 +52,12 @@ def test_fill_out_student_form(driver):
     driver.find_element(By.CSS_SELECTOR, '.react-datepicker__day--019').click()
     subject = driver.find_element(By.ID, 'subjectsInput')
     subject.send_keys(data[6])
+    subject.send_keys(Keys.ENTER)
     driver.find_element(By.CSS_SELECTOR, "input[id='hobbies-checkbox-1']").click()
     input_current_address = driver.find_element(By.ID, 'currentAddress')
     input_current_address.send_keys(data[7])
     wait = WebDriverWait(driver, 1)
-    wait.until(lambda value: driver.find_element(By.CLASS_NAME, "css-16xfy0z-control")
-               .get_attribute("aria-disabled") == "true")
-    select_state = wait.until(EC.visibility_of_element_located((By.ID, "react-select-3-input")))
+    select_state = wait.until(EC.element_to_be_clickable((By.ID, "react-select-3-input")))
     select_state.click()
     choose_state = wait.until(
         EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, '-option') and text()='Haryana']")))
