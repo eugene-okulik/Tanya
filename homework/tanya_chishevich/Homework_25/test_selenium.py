@@ -12,7 +12,6 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
-    sleep(3)
     chrome_driver.maximize_window()
     yield chrome_driver
     sleep(3)
