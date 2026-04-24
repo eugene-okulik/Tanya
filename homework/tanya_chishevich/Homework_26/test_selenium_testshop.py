@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 import pytest
-from time import sleep
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,7 +11,6 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.fixture()
 def driver():
     chrome_driver = webdriver.Chrome()
-    sleep(3)
     chrome_driver.maximize_window()
     yield chrome_driver
 
